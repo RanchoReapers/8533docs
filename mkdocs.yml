@@ -1,2 +1,113 @@
 site_name: FRC Team 8533 Wiki
 theme: readthedocs
+
+nav:
+- Start Here: index.md
+
+- I'm New Here:
+    - Hardware Overview:
+        - Basic Concepts: I'm New Here/Hardware Overview/basicconcepts.md
+        - Breaker: I'm New Here/Hardware Overview/breaker.md
+        - RSL: I'm New Here/Hardware Overview/rsl.md
+        - VRM: I'm New Here/Hardware Overview/vrm.md
+        - SystemCore: I'm New Here/Hardware Overview/systemcore.md
+        - Studica NavX3-CAN: I'm New Here/Hardware Overview/navx.md
+        - SparkMAX Motor Controllers: I'm New Here/Hardware Overview/sparkmax.md
+        - REV NEO Brushless Motors V1.1: I'm New Here/Hardware Overview/neo.md
+        - CANCoders: I'm New Here/Hardware Overview/cancoders.md
+        - Swerve Modules/Drive: I'm New Here/Hardware Overview/swerve.md
+        - REV PDH: I'm New Here/Hardware Overview/pdh.md
+        - Robot Radio: I'm New Here/Hardware Overview/robotradio.md
+        - Limelight 3 Smart Camera:
+           - Limelight 3: I'm New Here/Hardware Overview/limelight.md
+           - Google Coral USB Accelerator: I'm New Here/Hardware Overview/coral.md
+    - Programs Overview: 
+        - Elastic: I'm New Here/Programs Overview/elastic.md
+        - Choreo: I'm New Here/Programs Overview/choreo.md
+        - Limelight Hardware Manager: I'm New Here/Programs Overview/limelighthardwaremanager.md
+        - FRC Game Tools:
+            - FRC Driver Station: I'm New Here/Programs Overview/frcdriverstation.md
+    - Git/GitHub Overview:
+        - What is Git/GitHub?: I'm New Here/Git Overview/basicgitconcepts.md
+        - Basic Opereations:    
+            - Pulls, Pushes, and Commits: I'm New Here/Git Overview/pullscommitspushes.md
+            - Staging vs Commiting: I'm New Here/Git Overview/stagingvscommiting.md
+        - Advanced Concepts:
+            - Repos, Branches, and PRs: I'm New Here/Git Overview/reposbranchesprs.md
+            - Creating a Repository: I'm New Here/Git Overview/creatingrepository.md
+            - Cloning a Repository: I'm New Here/Git Overview/cloningrepository.md
+            - Downloading Code: I'm New Here/Git Overview/downloadingcode.md
+            - Resolving Merge Conflicts: I'm New Here/Git Overview/mergingcode.md
+        - Staying Organized with GitHub Issues: I'm New Here/Git Overview/githubissues.md
+    - Visual Studio Code Overview: 
+        - VS Code Basics and the WPILib Extension: I'm New Here/VS Code Overview/vscodebasics.md
+        - Important WPILib Commands: I'm New Here/VS Code Overview/vscodebasics.md
+        - Git in VS Code: I'm New Here/VS Code Overview/gitinvscode.md
+        - Vendor Dependencies: I'm New Here/VS Code Overview/vendordeps.md
+    - Java Overview:
+        - Mathematics:
+            - Variables & Data Types: I'm New Here/Java Overview/variablesdatatypes.md
+            - Expressions & Arithmetic: I'm New Here/Java Overview/expressionsarithmetic.md
+            - Assignment Operators: I'm New Here/Java Overview/assignmentoperators.md
+            - Comparison Operators: I'm New Here/Java Overview/comparisonoperators.md
+        - Classes, Functions:
+            - Parameters: I'm New Here/Java Overview/parameters.md
+            - Anatomy of Classes: I'm New Here/Java Overview/anatomyofclasses.md
+            - Getters: I'm New Here/Java Overview/getters.md
+            - Setters: I'm New Here/Java Overview/setters.md
+            - If, If-Else, and Else-If Statements: I'm New Here/Java Overview/ifstatements.md
+            - Switch Statements: I'm New Here/Java Overview/switchstatements.md
+            - Switch Expressions (Condensed Switch Statements): I'm New Here/Java Overview/switchexpressions.md
+        - Methods, Arrays:
+            - Understanding Class Members & Methods: I'm New Here/Java Overview/classmembersmethods.md
+            - Intro to Arrays: I'm New Here/Java Overview/introtoarrays.md
+            - Iterating through Arrays: I'm New Here/Java Overview/iteratingarrays.md
+            - Intro to ArrayLists: I'm New Here/Java Overview/introtoarraylists.md - Codebase Overview:
+        - Command Based Programming: I'm New Here/Codebase Overview/commandbasedprogramming.md
+    - Robot Code Structure:
+          - Breaking Down Commands: I'm New Here/Codebase Overview/commandstructure.md
+          - Breaking Down Subsystems: I'm New Here/Codebase Overview/subsystemstructure.md
+          - Constants.java: I'm New Here/Codebase Overview/constantsjava.md
+          - SwerveSubsystem.java: I'm New Here/Codebase Overview/swervejava.md
+          - SwerveJoystickCommand.java: I'm New Here/Codebase Overview/swervejoystickcommandjava.md
+          - Robot.java: I'm New Here/Codebase Overview/robotjava.md
+          - RobotContainer.java: I'm New Here/Codebase Overview/robotcontainerjava.md
+          - LimelightHelpers.java: I'm New Here/Codebase Overview/limelighthelpersjava.md
+          - Autos.java: I'm New Here/Codebase Overview/autosjava.md
+          - /generated: I'm New Here/Codebase Overview/generatedjava.md
+          - /deploy: I'm New Here/Codebase Overview/deployjava.md
+    - Reading Documentation:
+        - Why Read Documentation?: I'm New Here/Reading Documentation/whyreaddocs.md
+        - Links to Important Documentation: I'm New Here/Reading Documentation/links.md
+        - How to Read Documentation: I'm New Here/Reading Documentation/howtoreaddocs.md
+
+- Build Season:
+  - Notes: Build Season/Notes/notes.md
+  - Updating Software:
+      - Installing WPILib: Buil Season/Updating Software/installingwpilib.md
+      - Installing FRC Game Tools: Build Season/Updating Software/installingfrcgametools.md
+      - Updating Rev Hardware Client 2: Build Season/Updating Software/updatingrevhardwareclient2.md
+      - Updating Phoenix Tuner X: Build Season/Updating Software/updatingphoenixtunerx.md
+      - Updating BalenaEtcher: Build Season/Updating Software/updatingbalenaetcher.md
+      - Updating Choreo: Build Season/Updating Software/updatingchoreo.md
+      - Updating Limelight Hardware Manager: Build Season/Updating Software/updatinglimelighthardwaremanager.md
+  - Updating Firmware:
+      - SystemCore: Build Season/Updating Firmware/updatingsystemcore.md
+      - Updating Robot Radio: Build Season/Updating Firmware/updatingrobotradio.md
+      - Updating SPARK MAXes: Build Season/Updating Firmware/updatingsparkmaxes.md
+      - Updating PDH: Build Season/Updating Firmware/updatingpdh.md
+      - Updating CANCoders: Build Season/Updating Firmware/updatingcancoders.md
+      - Updating Limelight: Build Season/Updating Firmware/updatinglimelight.md
+  - Updating Autos:      
+      - Retraining Google Coral: Build Season/Updating Firmware/retrainingcoral.md
+      - Updating Robot Details in Choreo: Build Season/Updating Autos/updatingrobotdetailsinchoreo.md
+      - Updating Auto Routines using Choreo: Build Season/Updating Autos/updatingautoroutines.md
+  - Updating Code:
+    - Importing Last Year's Robot Code: Build Season/Updating Code/importinglastyearscode.md
+    - Updating Last Year's Robot Code: Build Season/Updating Code/updatinglastyearscode.md
+    - Refactoring Code: Build Season/Updating Code/refactoringcode.md
+    - Adding New Features: Build Season/Updating Code/addingnewfeatures.md
+  - Tuning Swerve:
+    - PID Tuning: Build Season/Tuning Swerve/pidtuning.md
+    - Swerve Offsets: Build Season/Tuning Swerve/testingcalibration.md
+  - Season Overview: Build Season/Season Overview/seasonoverview.md
