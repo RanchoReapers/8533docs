@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Updating CANCoders - FRC Team 8533 Wiki</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Updating CANCoders";
+        var mkdocs_page_input_path = "Build Season/Updating Firmware/updatingcancoders.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> FRC Team 8533 Wiki
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Start Here</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">I'm New Here</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../I%27m%20New%20Here/Notes/notes/">Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Hardware Overview</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/basicconcepts/">Basic Concepts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/breaker/">Breaker</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/rsl/">RSL</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/vrm/">VRM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/systemcore/">SystemCore</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/navx/">Studica NavX3-CAN</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/sparkmax/">SparkMAX Motor Controllers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/neo/">REV NEO Brushless Motors V1.1</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/cancoders/">CANCoders</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/swerve/">Swerve Modules/Drive</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/pdh/">REV PDH</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/robotradio/">Robot Radio</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Limelight 3 Smart Camera</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/limelight/">Limelight 3</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/coral/">Google Coral USB Accelerator</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Programs Overview</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Programs%20Overview/elastic/">Elastic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Programs%20Overview/choreo/">Choreo</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Programs%20Overview/limelighthardwaremanager/">Limelight Hardware Manager</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >FRC Game Tools</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Programs%20Overview/frcdriverstation/">FRC Driver Station</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Git/GitHub Overview</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Git%20Overview/basicgitconcepts/">What is Git/GitHub?</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Basic Opereations</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Git%20Overview/pullscommitspushes/">Pulls, Pushes, and Commits</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Git%20Overview/stagingvscommiting/">Staging vs Commiting</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Advanced Concepts</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Git%20Overview/reposbranchesprs/">Repos, Branches, and PRs</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Git%20Overview/creatingrepository/">Creating a Repository</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Git%20Overview/cloningrepository/">Cloning a Repository</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Git%20Overview/downloadingcode/">Downloading Code</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Git%20Overview/mergingcode/">Resolving Merge Conflicts</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Git%20Overview/githubissues/">Staying Organized with GitHub Issues</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Visual Studio Code Overview</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/VS%20Code%20Overview/vscodebasics/">VS Code Basics and the WPILib Extension</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/VS%20Code%20Overview/vscodebasics/">VS Code Basics and the WPILib Extension</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/VS%20Code%20Overview/gitinvscode/">Git in VS Code</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/VS%20Code%20Overview/vendordeps/">Vendor Dependencies</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Java Overview</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Mathematics</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/variablesdatatypes/">Variables & Data Types</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/expressionsarithmetic/">Expressions & Arithmetic</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/assignmentoperators/">Assignment Operators</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/comparisonoperators/">Comparison Operators</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Classes, Functions</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/parameters/">Parameters</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/anatomyofclasses/">Anatomy of Classes</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/getters/">Getters</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/setters/">Setters</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/ifstatements/">If, If-Else, and Else-If Statements</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/switchstatements/">Switch Statements</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/switchexpressions/">Switch Expressions (Condensed Switch Statements)</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Methods, Arrays</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/classmembersmethods/">Understanding Class Members & Methods</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/introtoarrays/">Intro to Arrays</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/iteratingarrays/">Iterating through Arrays</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/introtoarraylists/">Intro to ArrayLists</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Codebase%20Overview/commandbasedprogramming/">Command Based Programming</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Robot Code Structure</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Codebase%20Overview/commandstructure/">Breaking Down Commands</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Codebase%20Overview/subsystemstructure/">Breaking Down Subsystems</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Codebase%20Overview/constantsjava/">Constants.java</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Codebase%20Overview/swervejava/">SwerveSubsystem.java</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Codebase%20Overview/swervejoystickcommandjava/">SwerveJoystickCommand.java</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Codebase%20Overview/robotjava/">Robot.java</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Codebase%20Overview/robotcontainerjava/">RobotContainer.java</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Codebase%20Overview/limelighthelpersjava/">LimelightHelpers.java</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Codebase%20Overview/autosjava/">Autos.java</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Codebase%20Overview/generatedjava/">/generated</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Codebase%20Overview/deployjava/">/deploy</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Reading Documentation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Reading%20Documentation/whyreaddocs/">Why Read Documentation?</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Reading%20Documentation/links/">Links to Important Documentation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Reading%20Documentation/howtoreaddocs/">How to Read Documentation</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Build Season</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../Notes/notes/">Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Updating Software</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../../../Buil Season/Updating Software/installingwpilib.md">Installing WPILib</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Software/installingfrcgametools/">Installing FRC Game Tools</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Software/updatingrevhardwareclient2/">Updating Rev Hardware Client 2</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Software/updatingphoenixtunerx/">Updating Phoenix Tuner X</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Software/updatingbalenaetcher/">Updating BalenaEtcher</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Software/updatingchoreo/">Updating Choreo</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Software/updatinglimelighthardwaremanager/">Updating Limelight Hardware Manager</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Updating Firmware</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../updatingsystemcore/">SystemCore</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../updatingrobotradio/">Updating Robot Radio</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../updatingsparkmaxes/">Updating SPARK MAXes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../updatingpdh/">Updating PDH</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Updating CANCoders</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../updatinglimelight/">Updating Limelight</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Updating Autos</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../retrainingcoral/">Retraining Google Coral</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Autos/updatingrobotdetailsinchoreo/">Updating Robot Details in Choreo</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Autos/updatingautoroutines/">Updating Auto Routines using Choreo</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Updating Code</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Code/importinglastyearscode/">Importing Last Year's Robot Code</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Code/updatinglastyearscode/">Updating Last Year's Robot Code</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Code/refactoringcode/">Refactoring Code</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Code/addingnewfeatures/">Adding New Features</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Code/deployingcode/">Deploying Code</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tuning Swerve</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Tuning%20Swerve/testingcalibration/">Swerve Offsets</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Tuning%20Swerve/pidtuning/">PID Tuning</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Season%20Overview/seasonoverview/">Season Overview</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">FRC Team 8533 Wiki</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Build Season</li>
+          <li class="breadcrumb-item">Updating Firmware</li>
+      <li class="breadcrumb-item active">Updating CANCoders</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1> Updating CANCoder Firmware </h1>
+
+<h2> What are CANCoders? </h2>
+
+<p>CANCoders are CTRE absolute magnetic encoders used to measure rotational position. They're critical for swerve drive steering and other mechanisms that need to know their exact angle.</p>
+<h2> When to Update CANCoder Firmware </h2>
+
+<p>Update CANCoder firmware:
+- At start of build season
+- When Phoenix 6 firmware is released
+- Before competitions
+- When adding new CANCoders
+- If experiencing position reading issues</p>
+<h2> Prerequisites </h2>
+
+<ul>
+<li>Phoenix Tuner X installed and updated</li>
+<li>Robot powered with 12V battery</li>
+<li>USB or CAN connection to robot</li>
+<li>All CANCoders have unique CAN IDs</li>
+<li>Magnets properly positioned near CANCoders</li>
+</ul>
+<h2> Update Process </h2>
+
+<p><strong>1. Connect to Robot</strong>:
+- Power robot with 12V battery
+- Connect computer via USB or network
+- Launch Phoenix Tuner X</p>
+<p><strong>2. Discover Devices</strong>:
+- Click scan/refresh in Tuner X
+- All CANCoders appear in device list
+- Note current firmware versions</p>
+<p><strong>3. Update Firmware</strong>:
+- Select CANCoder to update
+- Click "Update Firmware" button
+- Choose latest Phoenix 6 firmware
+- Confirm update
+- Wait for completion (30-60 seconds)
+- <strong>Don't disconnect during update!</strong></p>
+<p><strong>4. Repeat for All CANCoders</strong>:
+- Update one device at a time
+- Verify each update before moving to next
+- Test position reading after each update</p>
+<p><strong>5. Verify Updates</strong>:
+- Check firmware versions match
+- Test position readings
+- Verify configurations retained</p>
+<h2> CANCoder Configuration </h2>
+
+<p>After firmware update, verify:
+- CAN ID is correct
+- Magnet offset configured
+- Update rate appropriate
+- Direction correct (clockwise/counter-clockwise)
+- Units set (degrees/radians/rotations)
+- Absolute vs relative mode</p>
+<p><strong>Important</strong>: Firmware updates may reset some configurations!</p>
+<h2> Testing CANCoder Position </h2>
+
+<p>After updating, test each CANCoder:
+- Rotate mechanism slowly
+- Watch position value change
+- Verify 0-360° range (or 0-1 rotation)
+- Check position stays consistent
+- Test at different speeds
+- Verify absolute position retained after power cycle</p>
+<h2> Phoenix 6 vs Phoenix 5 </h2>
+
+<p>CANCoders work with both:
+- <strong>Phoenix 5</strong>: Older API, stable
+- <strong>Phoenix 6</strong>: New API, better features</p>
+<p>Choose based on your codebase. Phoenix 6 recommended for new projects.</p>
+<h2> Magnet Alignment </h2>
+
+<p>For accurate readings:
+- Magnet must be centered over CANCoder
+- Distance: 2-5mm ideal
+- Magnet must be diametrically polarized
+- Check LED on CANCoder:
+  - <strong>Green</strong>: Good magnet strength
+  - <strong>Orange</strong>: Marginal
+  - <strong>Red</strong>: Bad alignment or no magnet</p>
+<h2> Troubleshooting </h2>
+
+<p><strong>Can't detect CANCoder</strong>:
+- Check power (LED should light)
+- Verify CAN wiring
+- Check CAN termination resistor
+- Try different device first
+- Ensure magnet present (LED should be green/orange)</p>
+<p><strong>Update fails</strong>:
+- Ensure stable 12V power
+- Check CAN bus connections
+- Update Tuner X first
+- Try one device at a time
+- Check for CAN bus errors</p>
+<p><strong>Position reading wrong</strong>:
+- Verify magnet alignment (green LED)
+- Re-calibrate offset
+- Check configuration (direction, units)
+- Verify position source in code
+- Test with known good magnet</p>
+<p><strong>Position drifts or jumps</strong>:
+- Check magnet distance and alignment
+- Verify CAN bus not overloaded
+- Check for electrical interference
+- Test at lower update rates
+- Ensure firmware versions match</p>
+<h2> Swerve Drive Considerations </h2>
+
+<p>For swerve modules:
+- Update all CANCoders before tuning offsets
+- Document offset values (in case reset)
+- Test wheel straight position after update
+- Re-run offset calibration if needed
+- Verify all modules report correct angles</p>
+<h2> Best Practices </h2>
+
+<ul>
+<li>Update all CANCoders to same firmware</li>
+<li>Test magnet alignment before updating</li>
+<li>Document offset values before updating</li>
+<li>Update during robot development, not at competition</li>
+<li>Keep spare CANCoder configured</li>
+<li>Label CANCoders with CAN ID</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../updatingpdh/" class="btn btn-neutral float-left" title="Updating PDH"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../updatinglimelight/" class="btn btn-neutral float-right" title="Updating Limelight">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../updatingpdh/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../updatinglimelight/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

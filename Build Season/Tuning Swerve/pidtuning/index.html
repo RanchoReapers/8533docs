@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>PID Tuning - FRC Team 8533 Wiki</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "PID Tuning";
+        var mkdocs_page_input_path = "Build Season/Tuning Swerve/pidtuning.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> FRC Team 8533 Wiki
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Start Here</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">I'm New Here</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../I%27m%20New%20Here/Notes/notes/">Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Hardware Overview</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/basicconcepts/">Basic Concepts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/breaker/">Breaker</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/rsl/">RSL</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/vrm/">VRM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/systemcore/">SystemCore</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/navx/">Studica NavX3-CAN</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/sparkmax/">SparkMAX Motor Controllers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/neo/">REV NEO Brushless Motors V1.1</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/cancoders/">CANCoders</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/swerve/">Swerve Modules/Drive</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/pdh/">REV PDH</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/robotradio/">Robot Radio</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Limelight 3 Smart Camera</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/limelight/">Limelight 3</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Hardware%20Overview/coral/">Google Coral USB Accelerator</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Programs Overview</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Programs%20Overview/elastic/">Elastic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Programs%20Overview/choreo/">Choreo</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Programs%20Overview/limelighthardwaremanager/">Limelight Hardware Manager</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >FRC Game Tools</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Programs%20Overview/frcdriverstation/">FRC Driver Station</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Git/GitHub Overview</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Git%20Overview/basicgitconcepts/">What is Git/GitHub?</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Basic Opereations</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Git%20Overview/pullscommitspushes/">Pulls, Pushes, and Commits</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Git%20Overview/stagingvscommiting/">Staging vs Commiting</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Advanced Concepts</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Git%20Overview/reposbranchesprs/">Repos, Branches, and PRs</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Git%20Overview/creatingrepository/">Creating a Repository</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Git%20Overview/cloningrepository/">Cloning a Repository</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Git%20Overview/downloadingcode/">Downloading Code</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Git%20Overview/mergingcode/">Resolving Merge Conflicts</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Git%20Overview/githubissues/">Staying Organized with GitHub Issues</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Visual Studio Code Overview</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/VS%20Code%20Overview/vscodebasics/">VS Code Basics and the WPILib Extension</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/VS%20Code%20Overview/vscodebasics/">VS Code Basics and the WPILib Extension</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/VS%20Code%20Overview/gitinvscode/">Git in VS Code</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/VS%20Code%20Overview/vendordeps/">Vendor Dependencies</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Java Overview</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Mathematics</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/variablesdatatypes/">Variables & Data Types</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/expressionsarithmetic/">Expressions & Arithmetic</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/assignmentoperators/">Assignment Operators</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/comparisonoperators/">Comparison Operators</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Classes, Functions</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/parameters/">Parameters</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/anatomyofclasses/">Anatomy of Classes</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/getters/">Getters</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/setters/">Setters</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/ifstatements/">If, If-Else, and Else-If Statements</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/switchstatements/">Switch Statements</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/switchexpressions/">Switch Expressions (Condensed Switch Statements)</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Methods, Arrays</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/classmembersmethods/">Understanding Class Members & Methods</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/introtoarrays/">Intro to Arrays</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/iteratingarrays/">Iterating through Arrays</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../I%27m%20New%20Here/Java%20Overview/introtoarraylists/">Intro to ArrayLists</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Codebase%20Overview/commandbasedprogramming/">Command Based Programming</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Robot Code Structure</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Codebase%20Overview/commandstructure/">Breaking Down Commands</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Codebase%20Overview/subsystemstructure/">Breaking Down Subsystems</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Codebase%20Overview/constantsjava/">Constants.java</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Codebase%20Overview/swervejava/">SwerveSubsystem.java</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Codebase%20Overview/swervejoystickcommandjava/">SwerveJoystickCommand.java</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Codebase%20Overview/robotjava/">Robot.java</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Codebase%20Overview/robotcontainerjava/">RobotContainer.java</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Codebase%20Overview/limelighthelpersjava/">LimelightHelpers.java</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Codebase%20Overview/autosjava/">Autos.java</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Codebase%20Overview/generatedjava/">/generated</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Codebase%20Overview/deployjava/">/deploy</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Reading Documentation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Reading%20Documentation/whyreaddocs/">Why Read Documentation?</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Reading%20Documentation/links/">Links to Important Documentation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../I%27m%20New%20Here/Reading%20Documentation/howtoreaddocs/">How to Read Documentation</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Build Season</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../Notes/notes/">Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Updating Software</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../../../Buil Season/Updating Software/installingwpilib.md">Installing WPILib</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Software/installingfrcgametools/">Installing FRC Game Tools</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Software/updatingrevhardwareclient2/">Updating Rev Hardware Client 2</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Software/updatingphoenixtunerx/">Updating Phoenix Tuner X</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Software/updatingbalenaetcher/">Updating BalenaEtcher</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Software/updatingchoreo/">Updating Choreo</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Software/updatinglimelighthardwaremanager/">Updating Limelight Hardware Manager</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Updating Firmware</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Firmware/updatingsystemcore/">SystemCore</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Firmware/updatingrobotradio/">Updating Robot Radio</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Firmware/updatingsparkmaxes/">Updating SPARK MAXes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Firmware/updatingpdh/">Updating PDH</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Firmware/updatingcancoders/">Updating CANCoders</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Firmware/updatinglimelight/">Updating Limelight</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Updating Autos</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Firmware/retrainingcoral/">Retraining Google Coral</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Autos/updatingrobotdetailsinchoreo/">Updating Robot Details in Choreo</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Autos/updatingautoroutines/">Updating Auto Routines using Choreo</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Updating Code</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Code/importinglastyearscode/">Importing Last Year's Robot Code</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Code/updatinglastyearscode/">Updating Last Year's Robot Code</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Code/refactoringcode/">Refactoring Code</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Code/addingnewfeatures/">Adding New Features</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Updating%20Code/deployingcode/">Deploying Code</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Tuning Swerve</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../testingcalibration/">Swerve Offsets</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">PID Tuning</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Season%20Overview/seasonoverview/">Season Overview</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">FRC Team 8533 Wiki</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Build Season</li>
+          <li class="breadcrumb-item">Tuning Swerve</li>
+      <li class="breadcrumb-item active">PID Tuning</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1> PID Tuning for Swerve Drive </h1>
+
+<h2> What is PID Control? </h2>
+
+<p><abbr data-title="Proportional Integral Derivative">PID</abbr> (Proportional-Integral-Derivative) control is used to continuously calculate the "value of error" and apply a corresponding correction.</p>
+<p>For swerve drive, <abbr data-title="Proportional Integral Derivative">PID</abbr> controllers are used to calculate the correction needed for in:
+- Module steering (turning each wheel to desired angle)
+- Module drive (controlling wheel velocity)
+- Auto path following (X, Y, and rotation)</p>
+<hr />
+<h2> PID Components Explained </h2>
+
+<p>It is not important to understand how <abbr data-title="Proportional Integral Derivative">PID</abbr> works <em>exactly</em>, however, an understanding of how adjusting each value affects the swerve drive is important. Assume the "target" for these cases is a straight line a few feet away from the robot's starting position.</p>
+<p><strong>Proportional (P)</strong>:
+Adjust when: Your robot is too slow to reach the target or overshoots wildly.
+Increase P: if the robot moves too slowly toward the target.
+Decrease P: if it <abbr data-title="(of swerve drive wheels) turning left and right rapidly when attempting to drive straight">oscillates</abbr> back and forth or overshoots.</p>
+<p><strong>Integral (I)</strong>:
+Adjust when: The robot never quite reaches the target and gets stuck a little short.
+Increase I: if it consistently undershoots.
+Decrease I: if the robot starts “wobbling” around the target or <abbr data-title="(of swerve drive wheels) turning left and right rapidly when attempting to drive straight">oscillates</abbr> after reaching it.</p>
+<p><strong>Derivative (D)</strong>:
+Adjust when: The robot overshoots or bounces around the target.
+Increase D: to smooth motion and reduce overshoot.
+Decrease D: if the robot feels too sluggish or doesn’t reach the target fast enough</p>
+<hr />
+<h2> Tuning Process </h2>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Tuning is only necessary when your swerve drive <abbr data-title="(of swerve drive wheels) turning left and right rapidly when attempting to drive straight">oscillates</abbr> or overshoots/undershoots your target. If the robot does not drive straight, that is likely related to a swerve offset issue, NOT a <abbr data-title="Proportional Integral Derivative">PID</abbr> one. <strong>ALWAYS set swerve offsets before deciding whether or not <abbr data-title="Proportional Integral Derivative">PID</abbr> tuning is necessary.</strong></p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The robot uses 4 <abbr data-title="Proportional Integral Derivative">PID</abbr> controllers: 1 (<code>turnPidController</code>) in <code>SwerveModule.java</code> which controls <abbr data-title="Proportional Integral Derivative">PID</abbr> in teleop, and 3 (<code>pathXController, pathYController, pathThetaController</code>) in <code>SwerveSubsystem.java</code> which control <abbr data-title="Proportional Integral Derivative">PID</abbr> in autonomous path following. Other references to <abbr data-title="Proportional Integral Derivative">PID</abbr> controllers in the code are overwritten by these 4 and should not be changed.</p>
+</div>
+<p><strong>Start with All Zeros</strong>:</p>
+<pre><code class="language-java">PIDController controller = new PIDController(0, 0, 0);
+</code></pre>
+<p><strong>Step 1: Tune P</strong>: <br>
+1. Set I = 0, D = 0 <br>
+2. Increase P gradually (start with 0.1, 0.5, 1.0, etc.) <br>
+3. After each increase, deploy your update and test - you are looking for a quick reaction <br>
+4. If the wheels begin to <abbr data-title="(of swerve drive wheels) turning left and right rapidly when attempting to drive straight">oscillate</abbr>, reduce your P until the issue goes away. <br>
+5. You should now have a good P value (typically 2 digits of precision, ex. 0.12) <br></p>
+<p><strong>Step 2: Tune D</strong>: <br>
+1. Keep P from Step 1, I = 0 <br>
+2. Increase D gradually (usually 5-20x smaller than P) <br>
+3. After each increase, deploy your update and test - you are looking to reduce overshoot <br>
+4. If the wheels begin to <abbr data-title="(of swerve drive wheels) turning left and right rapidly when attempting to drive straight">oscillate</abbr>, reduce your D until the issue goes away. <br>
+5. You should now have a good D value (typically 2 digits of precision, ex. 0.12) <br></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Often, I = 0 works fine for swerve.</p>
+</div>
+<p><strong>Step 3: Tune I (if needed)</strong>: <br>
+1. Keep P and D from previous steps <br>
+2. Increase I VERY gradually (0.001, 0.01, 0.1) <br>
+3. After each increase, deploy your update and test - you are looking to reduce undershoot <br>
+4. You should now have a good P value (typically 2-4 digits of precision, ex. 0.12, 0.123 or 0.1234) <br></p>
+<hr />
+<h2> Common PID Issues </h2>
+
+<p><strong>Oscillation</strong>:
+- P too high - reduce P
+- D too low - increase D
+- Check for mechanical issues</p>
+<p><strong>Slow Response</strong>:
+- P too low - increase P</p>
+<p><strong>Never Reaches Target</strong>:
+- Add I term (carefully)
+- Check for mechanical issues</p>
+<p><strong>Overshoots Target</strong>:
+- P too high - reduce P
+- D too low - increase D</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../testingcalibration/" class="btn btn-neutral float-left" title="Swerve Offsets"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../Season%20Overview/seasonoverview/" class="btn btn-neutral float-right" title="Season Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../testingcalibration/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../Season%20Overview/seasonoverview/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
