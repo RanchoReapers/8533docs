@@ -1,64 +1,33 @@
 <h1> Build Season Notes </h1>
+!!! warning 
+    The contents of the *Build Season* section are not applicable until after Kickoff. You can get started with some basics right after kickoff, specifically updating software. You cannot update software, tune swerve, or physically test any new subsystems you write until after the robot is built. 
 
-<h2> What is Build Season? </h2>
-
-Build Season is the intense 6-8 week period following kickoff where FRC teams design, build, program, and test their competition robot for that year's game. It's the most critical time of the year for programming teams.
+!!! important
+    Through build season, make sure to commit code frequently with clear commit messages. Comment your additions and document major changes. Test your code as frequently and as soon as possible.
 
 <h2> Programming Priorities During Build Season </h2>
 
-**Week 1-2: Planning and Setup**:
-- Analyze game requirements
-- Plan robot capabilities and autonomous strategies
-- Update software and firmware
-- Set up new repository for season
-- Import and update previous year's code
+<h3> Step 1 - Kickoff </h3>
+- Update software.
+- Set up new repository for season.
+- Import and update previous year's code.
+- Talk to <abbr data-title="Computer Aided Design">CAD</abbr> Team -> You'll need to know what specific components will be going on the robot and how many motors each will use. Talk about planned behaviors for each component so you know what to program.
+- Create basic subsystems for planned mechanisms, assuming <abbr data-title="Controller Area Network">CAN</abbr> IDs.
+- Start creating basic autos.
 
-**Week 3-4: Core Systems**:
-- Implement drivetrain control
-- Create basic subsystems for mechanisms
-- Test and tune PID controllers
-- Begin autonomous path planning
+<h3> Step 2 </h3>
+!!! info
+    You'll need a fully built and wired chassis to complete this step.
+- Tune swerve.
+- Update firmware for anything currently on the robot.
+- Start training Limelight neural networks.
+- Deploy 
 
-**Week 5-6: Integration and Features**:
-- Integrate all subsystems
-- Add operator controls
-- Implement autonomous routines
-- Vision system integration
-- Safety features and limits
-
-**Week 7-8: Testing and Polish**:
-- Extensive testing and debugging
-- Optimize autonomous
-- Practice driver training
-- Create fallback strategies
-- Document code
-
-<h2> Important Notes to Track </h2>
-
-Document these throughout build season:
-- CAN IDs for all devices
-- Tuned PID values
-- Encoder offsets and calibrations
-- Known bugs and workarounds
-- Match strategy notes
-- Configuration changes
-- Lessons learned
-
-<h2> Communication is Key </h2>
-
-Programming team must coordinate with:
-- **Mechanical team**: Hardware changes affect code
-- **Electrical team**: Wiring affects device IDs
-- **Design team**: Requirements drive features
-- **Drive team**: Controls and strategy feedback
-- **Mentors**: Technical guidance and review
-
-<h2> Best Practices </h2>
-
-- Commit code frequently with clear messages
-- Test on real hardware as soon as possible
-- Keep a testing checklist
-- Have backup plans for critical features
-- Document everything
-- Don't wait until the last week to integrate
-- Practice match procedures (autonomous selection, etc.)
+<h3> Step 3 </h3>
+!!! info
+    You'll need the robot to be fully built with all components to complete this step.
+- Update firmware for any remaining components.
+- Update controls.
+- Test autonomous routines.
+- Test limelight integration.
+- Practice driving the robot.

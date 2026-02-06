@@ -1,10 +1,16 @@
 site_name: FRC Team 8533 Wiki
 theme: readthedocs
+markdown_extensions:
+  - admonition
+extra_css:
+  - css/extra.css
+
 
 nav:
 - Start Here: index.md
 
 - I'm New Here:
+    - Notes: I'm New Here/Notes/notes.md
     - Hardware Overview:
         - Basic Concepts: I'm New Here/Hardware Overview/basicconcepts.md
         - Breaker: I'm New Here/Hardware Overview/breaker.md
@@ -62,7 +68,7 @@ nav:
             - Understanding Class Members & Methods: I'm New Here/Java Overview/classmembersmethods.md
             - Intro to Arrays: I'm New Here/Java Overview/introtoarrays.md
             - Iterating through Arrays: I'm New Here/Java Overview/iteratingarrays.md
-            - Intro to ArrayLists: I'm New Here/Java Overview/introtoarraylists.md - Codebase Overview:
+            - Intro to ArrayLists: I'm New Here/Java Overview/introtoarraylists.md
         - Command Based Programming: I'm New Here/Codebase Overview/commandbasedprogramming.md
     - Robot Code Structure:
           - Breaking Down Commands: I'm New Here/Codebase Overview/commandstructure.md
@@ -107,7 +113,8 @@ nav:
     - Updating Last Year's Robot Code: Build Season/Updating Code/updatinglastyearscode.md
     - Refactoring Code: Build Season/Updating Code/refactoringcode.md
     - Adding New Features: Build Season/Updating Code/addingnewfeatures.md
+    - Deploying Code: Build Season/Updating Code/deployingcode.md
   - Tuning Swerve:
-    - PID Tuning: Build Season/Tuning Swerve/pidtuning.md
     - Swerve Offsets: Build Season/Tuning Swerve/testingcalibration.md
+    - PID Tuning: Build Season/Tuning Swerve/pidtuning.md
   - Season Overview: Build Season/Season Overview/seasonoverview.md

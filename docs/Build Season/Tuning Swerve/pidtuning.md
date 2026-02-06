@@ -2,241 +2,87 @@
 
 <h2> What is PID Control? </h2>
 
-PID (Proportional-Integral-Derivative) control is a feedback mechanism that continuously calculates an error value and applies a correction. For swerve drive, PID controllers are used for:
+<abbr data-title="Proportional Integral Derivative">PID</abbr> (Proportional-Integral-Derivative) control is used to continuously calculate the "value of error" and apply a corresponding correction.
+
+For swerve drive, <abbr data-title="Proportional Integral Derivative">PID</abbr> controllers are used to calculate the correction needed for in:
 - Module steering (turning each wheel to desired angle)
 - Module drive (controlling wheel velocity)
 - Auto path following (X, Y, and rotation)
 
+---
+
 <h2> PID Components Explained </h2>
 
+It is not important to understand how <abbr data-title="Proportional Integral Derivative">PID</abbr> works *exactly*, however, an understanding of how adjusting each value affects the swerve drive is important. Assume the "target" for these cases is a straight line a few feet away from the robot's starting position.
+
 **Proportional (P)**:
-- Correction proportional to current error
-- Larger error = larger correction
-- Can overshoot and oscillate
+Adjust when: Your robot is too slow to reach the target or overshoots wildly.
+Increase P: if the robot moves too slowly toward the target.
+Decrease P: if it <abbr data-title="(of swerve drive wheels) turning left and right rapidly when attempting to drive straight">oscillates</abbr> back and forth or overshoots.
 
 **Integral (I)**:
-- Accumulates error over time
-- Eliminates steady-state error
-- Can cause windup problems
+Adjust when: The robot never quite reaches the target and gets stuck a little short.
+Increase I: if it consistently undershoots.
+Decrease I: if the robot starts “wobbling” around the target or <abbr data-title="(of swerve drive wheels) turning left and right rapidly when attempting to drive straight">oscillates</abbr> after reaching it.
 
 **Derivative (D)**:
-- Responds to rate of error change
-- Reduces overshoot
-- Sensitive to noise
+Adjust when: The robot overshoots or bounces around the target.
+Increase D: to smooth motion and reduce overshoot.
+Decrease D: if the robot feels too sluggish or doesn’t reach the target fast enough
+
+---
 
 <h2> Tuning Process </h2>
+!!! danger
+    Tuning is only necessary when your swerve drive <abbr data-title="(of swerve drive wheels) turning left and right rapidly when attempting to drive straight">oscillates</abbr> or overshoots/undershoots your target. If the robot does not drive straight, that is likely related to a swerve offset issue, NOT a <abbr data-title="Proportional Integral Derivative">PID</abbr> one. **ALWAYS set swerve offsets before deciding whether or not <abbr data-title="Proportional Integral Derivative">PID</abbr> tuning is necessary.**
 
+!!! info
+    The robot uses 4 <abbr data-title="Proportional Integral Derivative">PID</abbr> controllers: 1 (`turnPidController`) in `SwerveModule.java` which controls <abbr data-title="Proportional Integral Derivative">PID</abbr> in teleop, and 3 (`pathXController, pathYController, pathThetaController`) in `SwerveSubsystem.java` which control <abbr data-title="Proportional Integral Derivative">PID</abbr> in autonomous path following. Other references to <abbr data-title="Proportional Integral Derivative">PID</abbr> controllers in the code are overwritten by these 4 and should not be changed.
+    
 **Start with All Zeros**:
 ```java
 PIDController controller = new PIDController(0, 0, 0);
 ```
 
-**Step 1: Tune P**:
-1. Set I = 0, D = 0
-2. Increase P gradually (start with 0.1, 0.5, 1.0, etc.)
-3. Test response - looking for quick reaction
-4. Stop when oscillation becomes consistent
-5. Reduce P by 20-30% from oscillation point
+**Step 1: Tune P**: <br>
+1. Set I = 0, D = 0 <br>
+2. Increase P gradually (start with 0.1, 0.5, 1.0, etc.) <br>
+3. After each increase, deploy your update and test - you are looking for a quick reaction <br>
+4. If the wheels begin to <abbr data-title="(of swerve drive wheels) turning left and right rapidly when attempting to drive straight">oscillate</abbr>, reduce your P until the issue goes away. <br>
+5. You should now have a good P value (typically 2 digits of precision, ex. 0.12) <br>
 
-**Step 2: Tune D**:
-1. Keep P from Step 1, I = 0
-2. Increase D gradually (usually 5-20x smaller than P)
-3. Test response - should reduce overshoot
-4. Stop when response is smooth without oscillation
+**Step 2: Tune D**: <br>
+1. Keep P from Step 1, I = 0 <br>
+2. Increase D gradually (usually 5-20x smaller than P) <br>
+3. After each increase, deploy your update and test - you are looking to reduce overshoot <br>
+4. If the wheels begin to <abbr data-title="(of swerve drive wheels) turning left and right rapidly when attempting to drive straight">oscillate</abbr>, reduce your D until the issue goes away. <br>
+5. You should now have a good D value (typically 2 digits of precision, ex. 0.12) <br>
 
-**Step 3: Tune I (if needed)**:
-1. Keep P and D from previous steps
-2. Increase I very gradually (0.001, 0.01, 0.1)
-3. Look for elimination of steady-state error
-4. Watch for oscillation or instability
-5. Often I = 0 works fine for swerve
+!!! note
+    Often, I = 0 works fine for swerve.
 
-<h2> Tuning Module Steering </h2>
+**Step 3: Tune I (if needed)**: <br>
+1. Keep P and D from previous steps <br>
+2. Increase I VERY gradually (0.001, 0.01, 0.1) <br>
+3. After each increase, deploy your update and test - you are looking to reduce undershoot <br>
+4. You should now have a good P value (typically 2-4 digits of precision, ex. 0.12, 0.123 or 0.1234) <br>
 
-**Goal**: Wheel turns to target angle quickly without overshoot.
-
-**Typical Values**:
-- P: 3.0 - 8.0
-- I: 0.0 - 0.1
-- D: 0.0 - 0.5
-
-**Tuning Procedure**:
-1. Disable drive motors (only tune steering)
-2. Command module to rotate 90 degrees
-3. Observe response time and oscillation
-4. Adjust P for speed, D for smoothness
-5. Repeat for different angle changes
-
-**Testing**:
-```java
-// In module class or test command
-public void testSteeringPID(double targetAngleDegrees) {
-    setTargetAngle(targetAngleDegrees);
-    // Observe how quickly and smoothly it reaches target
-}
-```
-
-<h2> Tuning Module Drive </h2>
-
-**Goal**: Wheel velocity matches commanded velocity.
-
-**Typical Values**:
-- P: 0.1 - 0.5
-- I: 0.0
-- D: 0.0 - 0.05
-- FF: 0.1 - 0.3 (feedforward)
-
-**Tuning Procedure**:
-1. Use velocity control mode on SPARK MAX
-2. Command various speeds
-3. Monitor actual vs target velocity
-4. Adjust P for tracking
-5. Add FF to reduce steady-state error
-
-**Feedforward**:
-```java
-// Simple feedforward
-double ffOutput = targetVelocity * kF;
-double pidOutput = pidController.calculate(currentVelocity, targetVelocity);
-double output = ffOutput + pidOutput;
-```
-
-<h2> Tuning Path Following </h2>
-
-**Holonomic (X, Y, Rotation) Controllers**:
-
-Each has its own PID controller:
-
-**Translation Controllers (X and Y)**:
-- P: 3.0 - 8.0
-- I: 0.0 - 0.5
-- D: 0.0 - 0.5
-
-**Rotation Controller (Theta)**:
-- P: 2.0 - 6.0
-- I: 0.0
-- D: 0.0 - 0.3
-
-**Tuning Process**:
-1. Create simple test path (straight line)
-2. Deploy and run autonomous
-3. Log actual vs target positions
-4. Tune X and Y together first
-5. Then tune rotation separately
-
-<h2> Measuring PID Performance </h2>
-
-**What to Monitor**:
-- Settling time (how long to reach target)
-- Overshoot (how much beyond target)
-- Steady-state error (final error)
-- Oscillation (constant back-and-forth)
-- Rise time (initial response speed)
-
-**Logging for Analysis**:
-```java
-@Override
-public void periodic() {
-    SmartDashboard.putNumber("Target Angle", targetAngle);
-    SmartDashboard.putNumber("Current Angle", getCurrentAngle());
-    SmartDashboard.putNumber("Error", targetAngle - getCurrentAngle());
-    SmartDashboard.putNumber("PID Output", pidController.calculate(...));
-}
-```
+---
 
 <h2> Common PID Issues </h2>
 
 **Oscillation**:
 - P too high - reduce P
 - D too low - increase D
-- Check for mechanical slop
+- Check for mechanical issues
 
 **Slow Response**:
 - P too low - increase P
-- Check for friction/binding
-- Verify max output not limiting
 
 **Never Reaches Target**:
 - Add I term (carefully)
 - Check for mechanical issues
-- Verify sensor accuracy
 
 **Overshoots Target**:
 - P too high - reduce P
 - D too low - increase D
-- Add rate limiting
-
-**Integral Windup**:
-- Limit integral accumulation
-- Reset integral when far from target
-- Use integral zone
-
-<h2> Advanced PID Techniques </h2>
-
-**Integral Zone**:
-```java
-if (Math.abs(error) < INTEGRAL_ZONE) {
-    integral += error;
-} else {
-    integral = 0;
-}
-```
-
-**Output Limiting**:
-```java
-double output = MathUtil.clamp(pidOutput, -maxOutput, maxOutput);
-```
-
-**Derivative Filtering**:
-```java
-// Use filtered derivative to reduce noise
-filteredDerivative = 0.8 * filteredDerivative + 0.2 * rawDerivative;
-```
-
-<h2> Testing Best Practices </h2>
-
-- Tune one controller at a time
-- Make small adjustments
-- Test with different commands
-- Record values that work
-- Test under match conditions
-- Have robot safely suspended or limited space
-- Be ready to disable quickly
-- Document final values in Constants.java
-
-<h2> Tools for Tuning </h2>
-
-**REV Hardware Client**:
-- Tune SPARK MAX PID directly
-- Real-time plotting
-- Quick iteration
-
-**SmartDashboard/Shuffleboard**:
-- Display PID values
-- Live tuning without redeploying
-- Graph error and output
-
-**Advantage Kit/DataLog**:
-- Record PID performance
-- Analyze after the fact
-- Compare different tunings
-
-<h2> Final PID Values Documentation </h2>
-
-Document final tuned values:
-```java
-public static final class ModuleConstants {
-    // Steering PID
-    public static final double STEERING_P = 5.0;
-    public static final double STEERING_I = 0.0;
-    public static final double STEERING_D = 0.1;
-    
-    // Drive PID
-    public static final double DRIVE_P = 0.2;
-    public static final double DRIVE_I = 0.0;
-    public static final double DRIVE_D = 0.0;
-    public static final double DRIVE_FF = 0.25;
-}
-```
-
-Save these values in Constants.java and commit to version control!

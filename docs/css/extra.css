@@ -1,0 +1,43 @@
+abbr {
+    position: relative;
+    border-bottom: 2px dotted #888;
+    cursor: help;
+    text-decoration: none;
+}
+
+/* Tooltip bubble */
+abbr::after {
+    content: attr(data-title);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: #1a1a1a;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.08s ease-out;
+    z-index: 1000;
+}
+
+/* Show instantly on hover */
+abbr:hover::after {
+    opacity: 1;
+}
+abbr::after {
+    transform: translateX(-50%) translateY(4px);
+}
+
+abbr:hover::after {
+    transform: translateX(-50%) translateY(0);
+}
+abbr {
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
